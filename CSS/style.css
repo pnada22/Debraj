@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/gym background.jpg');
+    background-size: cover;
+    background-attachment: scroll;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 2px 30px;
+    color: white;
+    height: 80px;
+}
+
+.left .logo {
+    padding: 10px;
+    max-height: 60px;
+    width: 70px;
+    filter: invert(98%);
+    border-radius: 10px;
+    animation: zoomIn 1s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: #fcfbf8;
+}
+
+.fonty {
+    padding-left: 7px;
+    font-weight: bold;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mid nav ul {
+    list-style: none;
+    padding: 30px;
+    margin: 0;
+    display: flex;
+    font-size: 20px;
+    opacity: 0;
+    animation: dropDown 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes dropDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mid nav ul li {
+    position: relative;
+    /* Required for absolute positioning of preview */
+    margin: 0 30px;
+}
+
+.mid nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.mid nav ul li a:hover {
+    color: #ffcc00;
+}
+
+.right {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    opacity: 0;
+    animation: popUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    background-color: #e6b800;
+}
+
+
+
+.preview {
+    display: none;
+    /* Initially hidden */
+    position: absolute;
+    /* Position it relative to the nav item */
+    top: 100%;
+    /* Position it below the nav item */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Adjust to center */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Semi-transparent background */
+    color: white;
+    /* Text color */
+    padding: 5px 10px;
+    /* Padding around the text */
+    border-radius: 5px;
+    /* Rounded corners */
+    z-index: 10;
+    /* Ensure it's above other content */
+    opacity: 0;
+    /* Start transparent */
+    transition: opacity 0.5 ease;
+    /* Smooth transition for opacity */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+}
+
+/* Show the preview on hover */
+.mid nav ul li:hover .preview {
+    display: block;
+    /* Show the preview */
+    opacity: 1;
+    /* Make it fully visible */
+}
